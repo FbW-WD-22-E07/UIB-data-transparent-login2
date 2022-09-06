@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-clr: hsl(120, 100%, 40%);
+    --main-clr: aliceblue;
+    --general-margin: 2rem;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--main-clr);
+}
+
+/* make button inherit font family and color from body */
+button {
+    font-family: inherit;
+    color: inherit;
+}
+
+main.container {
+    height: 100vh;
+    background-image: url(bgimage.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1px;
+}
+
+form {
+    width: 70vw;
+    max-width: 400px;
+    height: 60vh;
+    margin: 0 auto;
+    margin-top: 10vh;
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+}
+/* give all direct children same margin bottom */
+form > * {
+    margin-bottom: var(--general-margin);
+}
+form h1 {
+    text-align: center;
+    border-bottom: solid var(--accent-clr) 0.3rem;
+    line-height: 3.5rem;
+    text-shadow: 1px 1px 5px hsl(0, 0%, 42%);
+}
+/* 
+    container of our inputs are relative
+    and should have height so the inputs as
+    absolute will have place to move inside
+*/
+.password,
+.email {
+    position: relative;
+    height: var(--general-margin);
+    border-bottom: solid var(--accent-clr) 0.1rem;
+}
+
+form input,
+form button {
+    display: block;
+    width: 100%;
+    background: transparent;
+}
+
+form input {
+    border: 0;
+    height: var(--general-margin);
+    padding: 0.5rem;
+    font-size: calc(var(--general-margin) - 0.5rem);
+    color: inherit;
+    position: absolute;
+    left: 1rem;
+    /* z-index: 1;  */
+}
+
+/* remove highlight (outline) on focus */
+form input:focus {
+    outline-width: 0;
+}
+
+.password i,
+.email i {
+    position: absolute;
+    left: 0;
+    bottom: 0.5rem;
+    width: 10%;
+    /* z-index: 2; */
+}
+/* 
+    you can use the parent .password class instead
+    but to show you how to use attribute selector 
+*/
+form input[type="password"] {
+    /* increase letter spacing for the password */
+    letter-spacing: 1ch;
+}
+/* both the color of input and fontawesome will change if invalid */
+form input:invalid,
+form input:invalid + i {
+    color: hsl(0, 100%, 78%);
+}
+
+input::placeholder {
+    color: var(--main-clr);
+    font-weight: 800;
+    font-size: 1rem;
+    /* 
+        to reset letter spacing to normal because we
+        change it for the password 
+     */
+    letter-spacing: normal;
+}
+
+form button[type="submit"] {
+    border: solid var(--accent-clr);
+    border-radius: 5px;
+    font-weight: 800;
+    height: var(--general-margin);
+    margin-top: calc(var(--general-margin) * 2);
+}
