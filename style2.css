@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-clr: hsl(120, 100%, 40%);
+    --main-clr: aliceblue;
+    --general-margin: 2rem;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--main-clr);
+}
+
+main.container {
+    background-image: url(bgimage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 1px;
+}
+
+/* make button inherit font family and color from body */
+button,
+input,
+input::placeholder {
+    font-family: inherit;
+    color: inherit;
+}
+
+form {
+    height: 60vh;
+    width: 60vw;
+    max-width: 400px;
+    padding: var(--general-margin);
+    margin: 10vh auto;
+}
+form > * {
+    margin-bottom: var(--general-margin);
+}
+
+form h1 {
+    text-align: center;
+    border-bottom: var(--accent-clr) solid 3px;
+    line-height: 3rem;
+}
+
+.password,
+.email {
+    border-bottom: var(--accent-clr) solid 2px;
+}
+
+form input,
+form button {
+    background: transparent;
+    border: 0;
+}
+
+form button {
+    width: 100%;
+}
+
+form input:focus {
+    outline: 0;
+}
+
+form button[type="submit"] {
+    border: var(--accent-clr) solid 2px;
+    height: var(--general-margin);
+    border-radius: 5px;
+}
